@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    <!-- Jersey Servlet Configuration -->
+    <servlet>
+        <servlet-name>Jersey Servlet</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>com.mycompany.server.resources</param-value> <!-- Replace with the actual package where your REST classes are -->
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- Jersey Servlet Mapping -->
+    <servlet-mapping>
+        <servlet-name>Jersey Servlet</servlet-name>
+        <url-pattern>/api/*</url-pattern> <!-- Maps requests to /api/* to Jersey -->
+    </servlet-mapping>
+    
+    <!-- Define the Welcome File (optional) -->
+    <welcome-file-list>
+        <!-- Remove or comment this if you don't want an index.html served -->
+        <welcome-file>index.html</welcome-file> <!-- Remove this line to avoid static HTML serving -->
+    </welcome-file-list>
+</web-app>
